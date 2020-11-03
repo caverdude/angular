@@ -4,12 +4,11 @@ import { Component, Input } from "@angular/core";
 selector: 'bs-jumbotron',
   template: `
     <div class="jumbotron">
-         <h1 class="display-4">Hello, world!</h1>
-      <p class="lead"><ng-content></ng-content></p>
+         <h1 class="display-4"><ng-content select=".heading"></ng-content> </h1>
+      <p class="lead"><ng-content select=".body"></ng-content></p>
          <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger
-              container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <p><ng-content select=".description"></ng-content></p>
+        <a class="btn btn-primary btn-lg" href="#" role="button"><ng-content select=".button"></ng-content></a>
   </div>
   `
 })
