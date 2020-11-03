@@ -18,9 +18,7 @@ import { Component } from '@angular/core';
                 <div class="button">
                   Learn More
                 </div>
-            </bs-jumbotron>
-
-            `
+            </bs-jumbotron>`
 })
 export class AppComponent {
 
