@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { UserFormComponent} from "./user-form.component";
 
+
 @NgModule({
   declarations: [
     AppComponent, UserFormComponent
