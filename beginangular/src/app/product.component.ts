@@ -7,7 +7,7 @@ import { Component, Input } from "@angular/core";
       <img src="{{ data.imageUrl}}" class="mr-3" alt="...">
       <div class="media-body">
         <h5 class="mt-0">{{ data.productName}}</h5>
-        {{ data.releaseDate  | date}}
+        {{ data.releaseDate  | date:"MM/dd/yy"}}
         <rating
             [rating]="data.rating"
             [numOfReviews]="data.numOfReviews">
