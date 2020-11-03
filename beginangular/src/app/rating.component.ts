@@ -37,7 +37,10 @@ import { Component,Input } from "@angular/core";
     <ng-template #elseBlock5>
       <starfill (click)="onClick(5)"></starfill>
     </ng-template>
-  `
+  `,
+  styles: [
+    'star { color:orange;}','starfill { color: orange;}'
+  ]
 })
 
 export class RatingComponent{
