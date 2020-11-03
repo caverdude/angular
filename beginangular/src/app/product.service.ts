@@ -1,6 +1,6 @@
 export class ProductService{
   getProducts(){
-    return [
+    return [ /*
       {
         imageUrl: "http://loremflickr.com/150/150?random=1",
         productName: "Product 1",
@@ -24,7 +24,7 @@ export class ProductService{
         description: "Cras sit amet nibh libero, in gravida... ",
         rating: 5,
         numberOfReviews: 2
-      }
+      }*/
     ];
   }
 }
