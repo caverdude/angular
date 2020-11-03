@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component,Input } from "@angular/core";
 
 @Component({
   selector: 'rating',
@@ -37,13 +37,11 @@ import { Component } from "@angular/core";
     <ng-template #elseBlock5>
       <starfill (click)="onClick(5)"></starfill>
     </ng-template>
-
-
   `
 })
 
 export class RatingComponent{
-  rating = 0;
+  @Input() rating = 0;
   onClick(ratingValue){
     this.rating=ratingValue;
   }
