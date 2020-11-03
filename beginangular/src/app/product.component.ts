@@ -21,7 +21,7 @@ import { Component, Input } from "@angular/core";
           <div *ngSwitchDefault>Not Rated</div>
         </div>
         <br>
-        {{ data.description }}
+        {{ data.description | truncate: 10 }}
       </div>
     </div>
   `,

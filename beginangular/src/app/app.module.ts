@@ -7,6 +7,7 @@ import { AppComponent} from "./app.component";
 import { BrowserModule} from "@angular/platform-browser";
 import { ProductComponent} from "./product.component";
 import { ProductsComponent} from "./products.component";
+import { TruncatePipe} from "./truncate.pipe";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductsComponent} from "./products.component";
     StarfillComponent,
     RatingComponent,
     ProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
