@@ -3,8 +3,10 @@ import {ProductService} from "./product.service";
 
 @Component({
   selector: 'app-root',
-  template: `<button class="btn btn-primary" [class.disabled]="!isValid">Submit</button>`,
+  template: `<button (click)="onClickMe($event)">Submit</button>`,
 })
 export class AppComponent {
-  isValid = false;
+  onClickMe($event){
+    console.log("Clicked", $event)
+  }
 }
