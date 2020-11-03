@@ -1,16 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { StarComponent } from "./star.component";
+import { StarfillComponent} from "./starfill.component";
+import { RatingComponent } from "./rating.component";
+import {FormsModule} from "@angular/forms";
+import { NgModule } from "@angular/core";
+import { AppComponent} from "./app.component";
+import { BrowserModule} from "@angular/platform-browser";
 
-import { AppComponent } from './app.component';
-import {ProductsComponent} from "./products.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    StarComponent,
+    StarfillComponent,
+    RatingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
