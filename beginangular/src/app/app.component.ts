@@ -3,8 +3,7 @@ import {ProductService} from "./product.service";
 
 @Component({
   selector: 'app-root',
-  template: `<h1>{{title}}</h1> <img src="{{imageUrl}}">`,
-  providers: [ProductService]
+  template: `<button class="btn btn-primary">Submit</button>`,
 })
 export class AppComponent {
   title = 'My First Angular App!';
