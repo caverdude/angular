@@ -37,6 +37,7 @@ import { Component,Input } from "@angular/core";
     <ng-template #elseBlock5>
       <starfill (click)="onClick(5)"></starfill>
     </ng-template>
+    {{ numOfReviews }}
   `,
   styles: [
     'star { color:orange;}','starfill { color: orange;}'
@@ -45,6 +46,7 @@ import { Component,Input } from "@angular/core";
 
 export class RatingComponent{
   @Input() rating = 0;
+  @Input() numOfReviews = 0;
   onClick(ratingValue){
     this.rating=ratingValue;
   }
