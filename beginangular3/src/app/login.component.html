@@ -14,6 +14,9 @@
       formControlName="password">
       <div *ngIf="form.controls.password.touched &&
          form.controls.password.errors">
+        <div *ngIf="form.controls.password.errors.invalidLogin" class="alert alert-danger">
+          Username or password is invalid.
+        </div>
         <div *ngIf="form.controls.password.errors.required" class="alert alert-danger">
           Password is required
         </div>
