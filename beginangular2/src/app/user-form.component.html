@@ -1,6 +1,6 @@
 <div class="container">
   <h1>User Form</h1>
-  <form>
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
     <div class="form-group">
       <label for="firstName">FirstName</label>
        <input text="text" class="form-control" id="firstName" minlength="3" required
@@ -35,6 +35,15 @@
         <option *ngFor="let c of countries" [value]="c">{{c}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default"
+      [disabled]="!userForm.form.valid">Submit</button>
   </form>
+</div>
+<div [hidden]="!submitted">
+  You submitted the following:
+  First Name: {{ model.firstName}} <br>
+  Email: {{ model.email}}<br>
+  Country: {{ model.country}}<br>
+  <button class="btn btn-default"
+          (click)="submitted=false">Remove</button>
 </div>
