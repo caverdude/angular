@@ -13,8 +13,14 @@
     <input id="password" type="password" class="form-control"
       formControlName="password">
       <div *ngIf="form.controls.password.touched &&
-         !form.controls.password.valid" class="alert alert-danger">
-        Password is required
+         form.controls.password.errors">
+        <div *ngIf="form.controls.password.errors.required" class="alert alert-danger">
+          Password is required
+        </div>
+
+        <div *ngIf="form.controls.password.errors.cannotContainSpace" class="alert alert-danger">
+        Password cannot contain space
+        </div>
       </div>
   </div>
   <button class="btn btn-primary" type="submit">Login</button>

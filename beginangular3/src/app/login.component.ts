@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { PasswordValidator } from "./password.validator";
+import { LoginService} from "./login.service";
 
 @Component({
   selector:'login',
@@ -10,7 +12,8 @@ export class LoginComponent{
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       username:['',Validators.required],
-      password:['',Validators.required]
+      password:['',Validators.compose([Validators.required,
+        PasswordValidator.cannotContainSpace])]
     })
   }
   login(){

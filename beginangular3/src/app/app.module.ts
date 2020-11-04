@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent} from "./login.component";
 import {FormGroup, ReactiveFormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AppComponent, LoginComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
