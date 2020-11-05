@@ -12,14 +12,19 @@ import { ContactComponent} from "./contact.component";
 import { GitHubUserComponent} from "./githubuser.component";
 import { routing } from "./app.routing";
 
+import { LoginService} from "./login.service";
+import { LoginComponent} from "./login.component";
+import { AuthGuard} from "./auth-guard.service";
+
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, NotFoundComponent, GitHubComponent, ContactComponent, GitHubUserComponent
+    AppComponent, HomeComponent, NotFoundComponent, GitHubComponent, ContactComponent, GitHubUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, ReactiveFormsModule, routing
   ],
-  providers: [],
+  providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
