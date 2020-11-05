@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { GitHubService} from "./github.service";
+import { filter, debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { FormControl } from "@angular/forms";
+
 
 @Component({
   selector: 'app-root',
   template: `
-  <div *ngIf="isLoading">
-    <i class="fa fa-spinner fa-spin fa-3x"></i>
-  </div>
+ <input class="form-control" type="search" [formControl]="searchControl">
   <h3>GitHub User Results</h3>
   <div *ngIf="isLoading">
     <i class="fa fa-spinner fa-spin fa-3x"></i>
@@ -27,17 +28,23 @@ import { GitHubService} from "./github.service";
   providers: [GitHubService]
 })
 export class AppComponent {
+  searchControl = new FormControl();
   isLoading = true;
   users = [];
   constructor(private _githubService: GitHubService) {
 
   }
   ngOnInit(){
-    this._githubService.getGitHubData('greg')
-      .subscribe(data => {
-        this.isLoading=false;
-        this.users=data.items;
-        console.log(data.items);
+    this.searchControl.valueChanges
+      .pipe(filter(text => text.length >=3),
+        debounceTime(400), distinctUntilChanged())
+      .subscribe(value => {
+        this.isLoading=true;
+        this._githubService.getGitHubData(value)
+          .subscribe(data => {
+            this.isLoading=false;
+            this.users= data.items;
+          });
       });
   }
 }
