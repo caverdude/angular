@@ -15,7 +15,7 @@ import { GitHubService } from "./github.service";
     RouterModule
   ],
   declarations: [
-    GitHubUserComponent, GitHubUserComponent
+    GitHubUserComponent, GitHubUserComponent, GitHubComponent
   ],
   exports: [
 
