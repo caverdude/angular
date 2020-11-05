@@ -16,6 +16,9 @@ import { FormControl } from "@angular/forms";
           <li class="nav-item active">
             <a class="nav-link" routerLink="GitHub">GitHub<span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="Contact">Contact<span class="sr-only">(current)</span></a>
+          </li>
         </ul>
       </div>
     </nav>

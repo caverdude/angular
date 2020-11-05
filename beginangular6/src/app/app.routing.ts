@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { NotFoundComponent } from './notfound.component';
 import { GitHubComponent} from "./github.component";
+import { ContactComponent} from "./contact.component";
 
 export const routing = RouterModule.forRoot([
   {path: '', component: HomeComponent},
   {path: 'GitHub', component: GitHubComponent},
+  {path: 'Contact', component: ContactComponent},
   {path: '**', component: NotFoundComponent}
 ]);
