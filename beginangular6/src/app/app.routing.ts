@@ -8,7 +8,7 @@ import { GitHubUserComponent} from "./githubuser.component";
 
 import { LoginComponent} from "./login.component";
 import { AuthGuard } from "./auth-guard.service";
-
+import { PreventUnsavedChangesGuard} from "./prevent-unsaved-changes-guard.service";
 
 export const routing = RouterModule.forRoot([
   {path: '', component: HomeComponent, canActivate:[AuthGuard]},
@@ -17,6 +17,6 @@ export const routing = RouterModule.forRoot([
     canActivate: [AuthGuard]},
   {path: 'Contact', component: ContactComponent},
   {path: 'GitHub/user/:login/:score', component: GitHubUserComponent, canActivate:[AuthGuard]},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, canDeactivate: [PreventUnsavedChangesGuard]},
   {path: '**', component: NotFoundComponent}
 ]);

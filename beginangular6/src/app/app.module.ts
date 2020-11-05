@@ -15,6 +15,7 @@ import { routing } from "./app.routing";
 import { LoginService} from "./login.service";
 import { LoginComponent} from "./login.component";
 import { AuthGuard} from "./auth-guard.service";
+import { PreventUnsavedChangesGuard} from "./prevent-unsaved-changes-guard.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { AuthGuard} from "./auth-guard.service";
   imports: [
     BrowserModule, HttpClientModule, ReactiveFormsModule, routing
   ],
-  providers: [LoginService, AuthGuard],
+  providers: [LoginService, AuthGuard, PreventUnsavedChangesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
