@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { GitHubService} from "./github.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+  `,
+  providers: [GitHubService]
 })
 export class AppComponent {
-  title = 'beginangular5';
+  constructor(private _githubService: GitHubService) {
+    this._githubService.getGitHubData('greg')
+      .subscribe(data => console.log(data));
+  }
 }
