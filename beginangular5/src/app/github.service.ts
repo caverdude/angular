@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
 export interface GitHubUser {
+  items: [];
   html_url: string;
   avatar_url: string;
   login: string;
