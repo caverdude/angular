@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 import { map } from 'rxjs/operators';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 interface User{
   name: string;
@@ -39,11 +39,11 @@ export class UserComponent {
   add(){
     this._router.navigate(['add']);
   }
-  /*
+
   delete(userId,name){
     if (confirm("Are you sure you want to delete " + name + "?")){
       this.afs.doc('users/'+userId).delete();
     }
-  }*/
+  }
 
 }

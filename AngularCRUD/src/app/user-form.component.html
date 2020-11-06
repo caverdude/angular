@@ -1,6 +1,7 @@
 <h1>{{ title }}</h1>
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-group">
+    <!--suppress XmlInvalidId -->
     <label for="username">Username</label>
     <input [(ngModel)]="user.name" type="text" class="form-control"
            formControlName="username">
@@ -10,6 +11,7 @@
     </div>
   </div>
   <div class="form-group">
+    <!--suppress XmlInvalidId -->
     <label for="email">Email</label>
     <input [(ngModel)]="user.email" class="form-control"
            formControlName="email">
