@@ -6,16 +6,18 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAnalyticsModule } from "@angular/fire/analytics";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from "../environments/environment";
-import { UsersComponent} from "./users.component";
+import { UserComponent} from "./user.component";
 import { routing } from "./app.routing";
+import { UserFormComponent} from "./user-form.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent, UsersComponent
+    AppComponent, UserComponent, UserFormComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule, AngularFirestoreModule,routing
+    AngularFireAnalyticsModule, AngularFirestoreModule,ReactiveFormsModule, routing
   ],
   providers: [],
   bootstrap: [AppComponent]

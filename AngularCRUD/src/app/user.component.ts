@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
-//import { Router } from '@angular/router';
+
 import { map } from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 interface User{
   name: string;
@@ -9,15 +10,14 @@ interface User{
 }
 @Component({
   selector: 'users',
-  templateUrl: './users.component.html'
+  templateUrl: './user.component.html'
 })
-export class UsersComponent {
+export class UserComponent {
 
   usersCol: AngularFirestoreCollection<User>;
   users: any;
 
-  //constructor(private afs: AngularFirestore, private _router: Router){
-  constructor(private afs: AngularFirestore){
+  constructor(private afs: AngularFirestore, private _router: Router){
   }
 
   ngOnInit(){
@@ -35,15 +35,15 @@ export class UsersComponent {
       );
 
   }
-  /*
+
   add(){
     this._router.navigate(['add']);
   }
-
+  /*
   delete(userId,name){
     if (confirm("Are you sure you want to delete " + name + "?")){
       this.afs.doc('users/'+userId).delete();
     }
-  }
-*/
+  }*/
+
 }
