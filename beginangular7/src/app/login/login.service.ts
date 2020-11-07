@@ -58,4 +58,17 @@ export class LoginService {
         }
       );
   }
+  getCurrentUser(){
+    return this.afAuth.authState.subscribe(authState => {
+      if(authState){
+        this.loggedIn.next(true);
+        this.router.navigate(['/']);
+
+        console.log("logged in as " + authState.uid);
+      }
+      else{
+        this.router.navigate(['login']);
+      }
+    });
+  }
 }

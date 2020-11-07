@@ -15,6 +15,8 @@ import { LoginComponent} from "./login/login.component";
 import { LoginService} from "./login/login.service";
 import { AngularFireAuthModule} from "@angular/fire/auth";
 import { SignupComponent } from "./login/signup.component";
+import { AuthGuard } from "./login/auth-guard";
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { SignupComponent } from "./login/signup.component";
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule, AngularFirestoreModule,ReactiveFormsModule, routing, AngularFireAuthModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
