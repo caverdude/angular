@@ -5,6 +5,7 @@ import { AngularFirestore,AngularFirestoreDocument} from '@angular/fire/firestor
 
 import { User } from './user'
 import { Observable } from 'rxjs'
+import { LoginService } from './login/login.service';
 
 @Component({
   selector:'user-form',
@@ -20,7 +21,7 @@ export class UserFormComponent  {
   singleUser: Observable<User>;
 
   constructor(fb: FormBuilder, private _router:Router, private afs: AngularFirestore,
-            private _route:ActivatedRoute){
+            private _route:ActivatedRoute, private _loginService: LoginService){
 
    // constructor(fb: FormBuilder, private _router:Router, private afs: AngularFirestore){
     this.form = fb.group({
@@ -40,7 +41,8 @@ export class UserFormComponent  {
     }
     else{
       this.title = "Edit User";
-      this.userDoc = this.afs.doc('users/'+this.id);
+      this.userDoc = this.afs.doc('users/'+
+        this._loginService.loggedInUser+"/clients/"+this.id);
       this.singleUser = this.userDoc.valueChanges();
       this.singleUser.subscribe((user) =>{
         this.form.get('username').setValue(user.name);
@@ -51,12 +53,12 @@ export class UserFormComponent  {
 
   submit() {
     if (this.id) {
-      this.afs.doc('users/' + this.id).update({
+      this.afs.doc('users/'+ this._loginService.loggedInUser+"/clients/"+this.id).update({
         name: this.user.name,
         email: this.user.email
       });
     } else {
-      this.afs.collection('users').add({
+      this.afs.collection('users').doc(this._loginService.loggedInUser).collection("clients").add({
         name: this.user.name,
         email: this.user.email
       });

@@ -3,6 +3,7 @@ import {AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fires
 
 import { map } from 'rxjs/operators';
 import {Router, ActivatedRoute} from "@angular/router";
+import { LoginService} from "./login/login.service";
 
 interface User{
   name: string;
@@ -17,11 +18,12 @@ export class UserComponent {
   usersCol: AngularFirestoreCollection<User>;
   users: any;
 
-  constructor(private afs: AngularFirestore, private _router: Router){
+  constructor(private afs: AngularFirestore, private _router: Router,
+              private _loginService: LoginService){
   }
 
   ngOnInit(){
-    this.usersCol = this.afs.collection('users');
+    this.usersCol = this.afs.collection('users'+this._loginService.loggedInUser+"/clients/");
     //this.users = this.usersCol.valueChanges();
      this.users = this.usersCol.snapshotChanges()
       .pipe(
@@ -42,7 +44,7 @@ export class UserComponent {
 
   delete(userId,name){
     if (confirm("Are you sure you want to delete " + name + "?")){
-      this.afs.doc('users/'+userId).delete();
+      this.afs.doc('users/'+this._loginService.loggedInUser+"/clients/"+userId).delete();
     }
   }
 
