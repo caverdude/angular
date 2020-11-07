@@ -14,10 +14,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent} from "./login/login.component";
 import { LoginService} from "./login/login.service";
 import { AngularFireAuthModule} from "@angular/fire/auth";
+import { SignupComponent } from "./login/signup.component";
 
 @NgModule({
   declarations: [
-    AppComponent, UserComponent, UserFormComponent, LoginComponent
+    AppComponent, UserComponent, UserFormComponent, LoginComponent, SignupComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

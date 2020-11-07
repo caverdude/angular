@@ -40,4 +40,22 @@ export class LoginService {
     this.afAuth.auth.signOut();
     this.router.navigate(['/login']);
   }
+
+  signup(username: string, password: string){
+    return this.afAuth.auth.createUserWithEmailAndPassword(username,password)
+      .then(
+        authState => {
+          console.log("signup-then",authState);
+          this.loggedIn.next(true);
+          this.router.navigate(['/']);
+        }
+      )
+      .catch(
+        error => {
+          var errorMessage = error.message;
+          this.router.navigate(['signup/' + error.message]);
+          console.log(error);
+        }
+      );
+  }
 }
